@@ -28,6 +28,17 @@ endif
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 
+ifeq ($(OS_Detected), Windows)
+	OS_Build := $(NAME)_win.exe
+	COPY := copy /Y $(OUTPUT) build\$(OS_Build)
+else
+	OS_Build := $(NAME)_linux
+	COPY := cp -rf $(OUTPUT) build/$(OS_Build)
+endif
+
+$(OS_Build): $(NAME)
+	$(COPY)
+
 $(NAME): $(OBJ_FILES)
 	$(CC) $(FLAGS) -o $@ $^ $(LIB)
 
