@@ -1,7 +1,13 @@
+#include <iostream>
 #include "Game.h"
 
+#ifdef main
+# undef main
+#endif
+
 int main(int argc, char* args[]) {
-  Game* g = new Game();
+    std::cout << "hello" << std::endl;
+    Game* g = new Game();
   g->loop();
   delete g;
   return 0;

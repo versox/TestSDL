@@ -1,0 +1,7 @@
+g++ -c -I /usr/include/SDL2 -o obj/Game.o src/Game.cpp
+In file included from src/Game.cpp:1:0:
+src/Game.h:6:17: fatal error: SDL.h: No such file or directory
+ #include "SDL.h"
+                 ^
+compilation terminated.
+make.exe": *** [obj/Game.o] Error 1
