@@ -1,0 +1,55 @@
+/* 
+ * File:   Game.cpp
+ * Author: cassc6073
+ * 
+ * Created on May 2, 2017, 10:36 AM
+ */
+
+#include "Game.h"
+
+Game::Game() {
+}
+
+Game::~Game() {
+    end();
+}
+
+void Game::start() {
+    SDL_Init(SDL_INIT_VIDEO);
+    window = SDL_CreateWindow( "Thomas the tank engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_BORDERLESS);
+    //Get window surface
+    screenSurface = SDL_GetWindowSurface( window );
+}
+
+void Game::end() {
+    SDL_DestroyWindow( window );
+    SDL_Quit();
+}
+
+void Game::loop() {
+    running = true;
+    bool update = true;
+    std::cout << "LOOPY" << std::endl;
+    while(running) {
+        while(SDL_PollEvent(&event) != 0) {
+            std::cout << "EVENT: " << event.type << std::endl;
+            if(event.type == SDL_QUIT) {
+                running = false;
+            }
+            else if(event.type == 768) {
+                if(update) {
+                    update = false;
+                } else {
+                    update = true;
+                }
+            }
+        
+        //Fill the surface white
+        SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 34, 146, 226 ) );
+        //Update the surface
+        if(update) {
+                SDL_UpdateWindowSurface( window );
+        }
+    }
+}
+}
