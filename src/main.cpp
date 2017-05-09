@@ -6,7 +6,7 @@
 #endif
 
 int main(int argc, char* args[]) {
-    std::cout << "hello" << std::endl;
+    std::cout << "hi" << std::endl;
     Game* g = new Game();
   g->loop();
   delete g;
