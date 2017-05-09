@@ -6,18 +6,18 @@ Game::Game(char* title) {
   initWindows();
 }
 
-int Game::init() {
+bool Game::init() {
+    bool success = true;
   if(SDL_Init(SDL_INIT_VIDEO) != 0) {
       std::cout << "Error Initializing SDL: " << SDL_GetError() << std::endl;
-      return 1;
+      success=false;
   }
-  return 0;
+  return success;
 }
 
 int Game::initWindows() {
   GameWindow* mainWindow = new GameWindow();
   mainWindow->initWindow();
-  windows.push_back(mainWindow);
 }
 
 int Game::loop() {
@@ -37,10 +37,7 @@ Game::~Game() {
   end();
 }
 
-int Game::end() {
-  std::cout << windows.size() << std::endl;
-  for(int i = 0; i < windows.size(); i++) {
-    delete windows[i];
-  }
+void Game::end() {
+    delete window;
   SDL_Quit();
 }
