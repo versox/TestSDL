@@ -30,11 +30,11 @@ OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 
 ifeq ($(OS_Detected), Windows)
 	OS_Build := $(NAME)_win.exe
-	COPY := copy /Y $(OUTPUT) build\$(OS_Build)
 else
 	OS_Build := $(NAME)_linux
-	COPY := cp -rf $(OUTPUT) build/$(OS_Build)
 endif
+
+COPY := cp -rf $(OUTPUT) build/$(OS_Build)
 
 $(OS_Build): $(NAME)
 	$(COPY)
