@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Object.h
  * Author: cassc6073
  *
@@ -8,6 +8,7 @@
 #ifndef OBJECT_H
 #define	OBJECT_H
 
+#include "SDL.h"
 #include "Sprite.h"
 
 class Object {
@@ -27,4 +28,3 @@ private:
 };
 
 #endif	/* OBJECT_H */
-
