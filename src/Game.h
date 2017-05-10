@@ -13,7 +13,7 @@ public:
   int loop();
 private:
   const char* title;
-  GameWindow window;
+  GameWindow* window;
   bool quit;
 
   bool init();
