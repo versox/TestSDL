@@ -12,8 +12,8 @@
         <in>Game.h</in>
         <in>GameWindow.cpp</in>
         <in>GameWindow.h</in>
-        <in>Sprite.cpp</in>
-        <in>Sprite.h</in>
+        <in>Object.cpp</in>
+        <in>Object.h</in>
         <in>main.cpp</in>
       </df>
     </df>

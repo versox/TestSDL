@@ -7,8 +7,6 @@
       </df>
       <df name="src">
         <in>Game.cpp</in>
-        <in>Sprite.cpp</in>
-        <in>Sprite.h</in>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -37,11 +35,12 @@
           <buildCommandWorkingDir>.</buildCommandWorkingDir>
           <buildCommand>${MAKE} -f Makefile</buildCommand>
           <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
-          <executablePath>test.exe</executablePath>
+          <executablePath></executablePath>
           <ccTool>
             <incDir>
               <pElem></pElem>
               <pElem>../../SDL2-2.0.5/include</pElem>
+              <pElem>../../SDL2_ttf-2.0.14/include</pElem>
             </incDir>
           </ccTool>
         </makeTool>
@@ -49,10 +48,6 @@
       <item path="obj/README.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Sprite.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Sprite.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
