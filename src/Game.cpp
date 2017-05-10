@@ -21,7 +21,7 @@ int Game::initWindows() {
 }
 
 int Game::loop() {
-  quit = false;
+  bool quit = false;
   while(!quit) {
     SDL_Event event;
     while(SDL_PollEvent(&event) != 0) {
