@@ -20,6 +20,10 @@ int Game::initWindows() {
   mainWindow->initWindow();
 }
 
+int Game::initRenderer(){
+    renderer=SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+}
+
 int Game::loop() {
   bool quit = false;
   while(!quit) {

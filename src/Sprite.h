@@ -8,6 +8,7 @@
 #ifndef SPRITE_H
 #define	SPRITE_H
 #include "SDL.h"
+//#include "SDL_image.h"
 #include <cstdlib>
 #include <string>
 class Sprite {
@@ -24,11 +25,16 @@ public:
     //gets sheet dimensions
     int getWidth();
     int getHeight();
+    
+    SDL_Rect gSpriteClip[4];
+    Sprite gSpriteSheetTexture;
 private:
     SDL_Texture* mTexture;
     
     int mHeight;
     int mWidth;
+    
+    Game* renderer;
 };
 
 #endif	/* SPRITE_H */

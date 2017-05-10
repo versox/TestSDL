@@ -18,6 +18,8 @@ private:
 
   bool init();
   virtual int initWindows();
+  virtual int initRenderer();
+  SDL_Renderer* renderer;
 
   void end();
 };
