@@ -16,10 +16,10 @@ private:
   std::vector<GameWindow*> windows;
   bool quit;
 
-  int init();
+  bool init();
   virtual int initWindows();
 
-  int end();
+  void end();
 };
 
 #endif
