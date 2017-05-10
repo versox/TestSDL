@@ -13,7 +13,7 @@ public:
   int loop();
 private:
   const char* title;
-  std::vector<GameWindow*> windows;
+  GameWindow window;
   bool quit;
 
   bool init();
