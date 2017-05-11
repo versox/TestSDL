@@ -12,8 +12,8 @@ class Game;
 
 class EventHandler {
 public:
-  typedef std::tuple<SDL_Keycode, Object*, void (Object::*) ()> ERegister;
-    
+  typedef std::tuple<SDL_Keycode, Object*, void (Object::*) ()> RegisteredKey;
+
   EventHandler(Game* game);
   virtual ~EventHandler();
 
@@ -22,8 +22,9 @@ public:
 private:
   Game* game;
   SDL_Event event;
-  std::vector<ERegister> registeredEvents;
-  
+  std::vector<RegisteredKey> registeredKeys;
+
+  void handleKey();
 };
 
 #endif
