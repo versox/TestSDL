@@ -7,7 +7,7 @@ else
 endif
 
 CC=g++
-FLAGS= -std=c++0x
+FLAGS= -std=c++0x -Wall
 
 ifeq ($(OS_Detected), Windows)
 	OUTPUT=$(NAME).exe

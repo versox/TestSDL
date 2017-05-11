@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   Sprite.cpp
  * Author: mathp0455
- * 
+ *
  * Created on May 10, 2017, 10:21 AM
  */
 
@@ -16,3 +16,6 @@ Sprite::Sprite(const Sprite& orig) {
 Sprite::~Sprite() {
 }
 
+void Sprite::render(int xPos, int yPos, SDL_Rect* sprite) {
+
+}

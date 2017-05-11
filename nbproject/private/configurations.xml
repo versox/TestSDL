@@ -8,12 +8,16 @@
         <in>README.md</in>
       </df>
       <df name="src">
+        <in>EventHandler.cpp</in>
+        <in>EventHandler.h</in>
         <in>Game.cpp</in>
         <in>Game.h</in>
         <in>GameWindow.cpp</in>
         <in>GameWindow.h</in>
         <in>Object.cpp</in>
         <in>Object.h</in>
+        <in>Sprite.cpp</in>
+        <in>Sprite.h</in>
         <in>main.cpp</in>
       </df>
     </df>
