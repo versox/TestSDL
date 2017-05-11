@@ -8,6 +8,7 @@
 #ifndef OBJECT_H
 #define	OBJECT_H
 
+#include <iostream>
 #include <vector>
 #include "SDL.h"
 #include "Sprite.h"
@@ -19,8 +20,9 @@ public:
     Object(Sprite* s, int x, int y);
     virtual ~Object();
     int getObjectID();
-    void update();
+    virtual void update();
     void draw();
+    void test();
 private:
     static std::vector<Object*> objects;
 

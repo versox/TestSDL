@@ -6,6 +6,7 @@
 #include "SDL.h"
 #include "GameWindow.h"
 #include "EventHandler.h"
+#include "Object.h"
 
 class EventHandler;
 

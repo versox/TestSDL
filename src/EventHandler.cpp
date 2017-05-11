@@ -17,6 +17,10 @@ void EventHandler::handle() {
   }
 }
 
+void EventHandler::registerKey(SDL_Keycode key, Object& obj, void (Object::*callbackFunc)(void)) {
+    (obj.*callbackFunc)();
+}
+
 EventHandler::~EventHandler() {
 
 }

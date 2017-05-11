@@ -36,3 +36,7 @@ void Object::draw() {
         this->sprite->render(this->x, this->y, NULL);
     }
 }
+
+void Object::test() {
+    std::cout << "YAY!" << std::endl;
+}
