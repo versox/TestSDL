@@ -8,23 +8,29 @@
 #ifndef OBJECT_H
 #define	OBJECT_H
 
+#include <vector>
 #include "SDL.h"
 #include "Sprite.h"
 
 class Object {
 public:
+    static Object* getObject(int objectID);
+
     Object(Sprite* s, int x, int y);
     virtual ~Object();
+    int getObjectID()
     void update();
     void draw();
 private:
+    static std::vector<Object*> objects;
+    
     Sprite* sprite;
     int x;
     int y;
     int width;
     int height;
     bool visible;
-
+    int objectID;
 };
 
 #endif	/* OBJECT_H */
