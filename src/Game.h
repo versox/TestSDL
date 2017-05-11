@@ -23,7 +23,7 @@ private:
   bool quitGame;
 
   bool init();
-  virtual int initWindows();
+  int initWindows();
 
   void end();
 };

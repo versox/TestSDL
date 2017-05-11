@@ -19,19 +19,19 @@ void EventHandler::handle() {
 }
 
 void EventHandler::handleKey() {
-  SDL_Keycode keyCode = event->keysym.sym;
+  SDL_Keycode keyCode = event.key.keysym.sym;
   for(int i = 0; i < registeredKeys.size(); i++) {
     RegisteredKey rKey = registeredKeys[i];
-    if(keyCode == std::get<0>(rKey) {
-      //(obj.*callbackFunc)();
-      // Call function that key is registered to
-      (std::get<1>(rKey)).*(std::get<2>(rKey))();
+    if(keyCode == std::get<0>(rKey)) {
+      Object& obj = std::get<1>(rKey);
+      void (Object::*callbackFunc)() = std::get<2>(rKey);
+      (obj.*callbackFunc)();
     }
   }
 }
 
-void EventHandler::registerKey(SDL_Keycode key, Object& obj, void (Object::*callbackFunc)(void)) {
-    resgisteredKeys.push_back(RegisteredKey(key, obj, callbackFunc));
+void EventHandler::registerKey(SDL_Keycode key, Object& obj, void (Object::*callbackFunc)()) {
+    registeredKeys.push_back(RegisteredKey(key, obj, callbackFunc));
 }
 
 EventHandler::~EventHandler() {
