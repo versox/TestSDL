@@ -5,16 +5,21 @@
 #include <vector>
 #include "SDL.h"
 #include "GameWindow.h"
+#include "EventHandler.h"
+
+class EventHandler;
 
 class Game {
 public:
   Game(char* title = "Generic Game");
   virtual ~Game();
   int loop();
+  void quit();
 private:
   const char* title;
   GameWindow* window;
-  bool quit;
+  EventHandler* eventHandler;
+  bool quitGame;
 
   bool init();
   virtual int initWindows();

@@ -18,12 +18,12 @@ public:
 
     Object(Sprite* s, int x, int y);
     virtual ~Object();
-    int getObjectID()
+    int getObjectID();
     void update();
     void draw();
 private:
     static std::vector<Object*> objects;
-    
+
     Sprite* sprite;
     int x;
     int y;

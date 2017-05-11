@@ -4,6 +4,8 @@ Game::Game(char* title) {
   this->title = title;
   init();
   initWindows();
+
+  eventHandler = new EventHandler(this);
 }
 
 bool Game::init() {
@@ -21,19 +23,19 @@ int Game::initWindows() {
 }
 
 int Game::loop() {
-  bool quit = false;
-  while(!quit) {
-    SDL_Event event;
-    while(SDL_PollEvent(&event) != 0) {
-      if(event.type == SDL_QUIT) {
-        quit = true;
-      }
-    }
+  quitGame = false;
+  while(!quitGame) {
+    eventHandler->handle();
   }
   return 0;
 }
 
+void Game::quit() {
+  quitGame = true;
+}
+
 Game::~Game() {
+  delete eventHandler;
   end();
 }
 
