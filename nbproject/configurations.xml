@@ -41,6 +41,7 @@
               <pElem></pElem>
               <pElem>../../SDL2-2.0.5/include</pElem>
               <pElem>../../SDL2_ttf-2.0.14/include</pElem>
+              <pElem>../../SDL2_image-2.0.1/include</pElem>
             </incDir>
           </ccTool>
         </makeTool>
