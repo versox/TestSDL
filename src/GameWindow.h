@@ -1,6 +1,7 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
+#include <cstdio>
 #include <iostream>
 #include <vector>
 #include "SDL.h"

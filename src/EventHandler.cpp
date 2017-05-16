@@ -11,7 +11,6 @@ void EventHandler::handle() {
         game->quit();
         break;
       case SDL_KEYDOWN:
-        std::cout << "Key down" << std::endl;
         handleKey();
         break;
     }

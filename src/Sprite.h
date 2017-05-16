@@ -8,7 +8,7 @@
 #ifndef SPRITE_H
 #define	SPRITE_H
 
-#include <cstdlib>
+#include <cstdio>
 #include <string>
 #include "SDL.h"
 #include "SDL_image.h"
