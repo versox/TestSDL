@@ -1,7 +1,7 @@
 #include "GameWindow.h"
 
-GameWindow::GameWindow() {
-  windowTitle = "Hello world";
+GameWindow::GameWindow(std::string title) {
+  windowTitle = title;
   x = SDL_WINDOWPOS_UNDEFINED;
   y = SDL_WINDOWPOS_UNDEFINED;
   width = 1000;
@@ -57,7 +57,7 @@ void GameWindow::setWindowColor(SDL_Color& windowColor) {
 }
 
 int GameWindow::createWindow() {
-  window = SDL_CreateWindow(windowTitle, x, y, width, height, SDL_WINDOW_OPENGL);
+  window = SDL_CreateWindow(windowTitle.c_str(), x, y, width, height, SDL_WINDOW_OPENGL);
   if(window == nullptr) {
     std::cout << "Window Initialize Error: (" << windowTitle << ") " << SDL_GetError() << std::endl;
     return 1;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Game.h"
+#include "PongGame.h"
 
 #ifdef main
 # undef main
@@ -7,7 +8,7 @@
 
 int main(int argc, char* args[]) {
     std::cout << "hi" << std::endl;
-    Game* g = new Game();
+    Game* g = new PongGame();
   g->loop();
   delete g;
   return 0;

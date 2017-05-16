@@ -27,7 +27,7 @@ bool Game::init() {
 }
 
 void Game::initWindows() {
-  window = new GameWindow();
+  window = new GameWindow(title);
   window->initWindow();
   window->initRenderer();
 }

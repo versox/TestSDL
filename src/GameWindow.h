@@ -4,13 +4,14 @@
 #include <cstdio>
 #include <iostream>
 #include <vector>
+#include <string>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "Object.h"
 
 class GameWindow {
 public:
-  GameWindow();
+  GameWindow(std::string title);
   virtual ~GameWindow();
 
   virtual int initWindow();
@@ -21,7 +22,7 @@ public:
   SDL_Renderer * getRenderer();
   void setWindowColor(SDL_Color& windowColor);
 private:
-  const char* windowTitle;
+  std::string windowTitle;
   int x;
   int y;
   int width;
