@@ -7,7 +7,7 @@ else
 endif
 
 CC=g++
-FLAGS= -std=c++0x -Wall
+FLAGS= -g -std=c++0x -Wall
 
 ifeq ($(OS_Detected), Windows)
 	OUTPUT=$(NAME).exe
@@ -22,7 +22,7 @@ ifeq ($(OS_Detected), Windows)
 	LIBS= SDL2 -lSDL2_ttf -lSDL2_image
 	LIB= -L $(LIBDIRS) -l$(LIBS)
 else
-	LIB= -lSDL2
+	LIB= -lSDL2 -lSDL2_ttf -lSDL2_image
 endif
 
 CPP_FILES := $(wildcard src/*.cpp)
@@ -47,7 +47,7 @@ obj/%.o: src/%.cpp
 
 .PHONY : clean
 clean:
-	rm $(OUTPUT) $(OBJ_FILES)
+	-rm $(OUTPUT) $(OBJ_FILES)
 
 run: $(NAME)
 	./$(NAME)

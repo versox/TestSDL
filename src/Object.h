@@ -12,27 +12,34 @@
 #include <vector>
 #include "SDL.h"
 #include "Sprite.h"
+#include "GameWindow.h"
+
+//class GameWindow;
 
 class Object {
+//Static
 public:
     static Object* getObject(int objectID);
-
-    Object(Sprite* s, int x, int y);
+    static std::vector<Object*> getObjects();
+private:
+    static std::vector<Object*> objects;
+//Object
+public:
+    Object(GameWindow* window, Sprite* sprite, int x, int y);
     virtual ~Object();
     int getObjectID();
     virtual void update();
-    void draw();
+    void render();
     void test();
 private:
-    static std::vector<Object*> objects;
-
+    int objectID;
+    GameWindow* window;
     Sprite* sprite;
     int x;
     int y;
     int width;
     int height;
     bool visible;
-    int objectID;
 };
 
 #endif	/* OBJECT_H */

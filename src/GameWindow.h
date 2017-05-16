@@ -2,14 +2,23 @@
 #define GAMEWINDOW_H
 
 #include <iostream>
+#include <vector>
 #include "SDL.h"
+#include "SDL_image.h"
+#include "Object.h"
 
 class GameWindow {
 public:
   GameWindow();
   virtual ~GameWindow();
-  int initWindow();
+
+  virtual int initWindow();
+  virtual void initRenderer();
+
+  void render();
   SDL_Window * getWindow();
+  SDL_Renderer * getRenderer();
+  void setWindowColor(SDL_Color& windowColor);
 private:
   const char* windowTitle;
   int x;
@@ -17,6 +26,8 @@ private:
   int width;
   int height;
   SDL_Window* window;
+  SDL_Renderer* renderer;
+  SDL_Color windowColor;
 
   int createWindow();
 };

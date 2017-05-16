@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Sprite.h
  * Author: mathp0455
  *
@@ -7,29 +7,35 @@
 
 #ifndef SPRITE_H
 #define	SPRITE_H
-#include "SDL.h"
+
 #include <cstdlib>
 #include <string>
+#include "SDL.h"
+#include "SDL_image.h"
+
+class GameWindow;
+
 class Sprite {
 public:
-    Sprite();
+    Sprite(std::string path);
     Sprite(const Sprite& orig);
     virtual ~Sprite();
-    
-    bool getFromFile(std::string path);
+    void setup(GameWindow* window, SDL_Renderer* renderer);
     //deallocates space
     void freeSpace();
     //Renders textures at specific point
-    void render(int xPos, int yPos, SDL_Rect* sprite=NULL);
+    void render(int xPos, int yPos);
     //gets sheet dimensions
     int getWidth();
     int getHeight();
 private:
-    SDL_Texture* mTexture;
-    
+    std::string path;
+    GameWindow* window;
+    SDL_Renderer* renderer;
+    SDL_Texture* texture;
+
     int mHeight;
     int mWidth;
 };
 
 #endif	/* SPRITE_H */
-

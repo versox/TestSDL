@@ -1,16 +1,15 @@
-/*
- * File:   Object.cpp
- * Author: cassc6073
- *
- * Created on May 10, 2017, 10:11 AM
- */
-
 #include "Object.h"
 
 std::vector<Object*> Object::objects;
 
-Object::Object(Sprite* s, int x, int y) {
-    sprite = s;
+std::vector<Object*> Object::getObjects() {
+  return objects;
+}
+
+Object::Object(GameWindow* window, Sprite* sprite, int x, int y) {
+    this->window = window;
+    this->sprite = sprite;
+    sprite->setup(window, window->getRenderer());
     this->x = x;
     this->y = y;
     visible = true;
@@ -31,9 +30,9 @@ void Object::update() {
 
 }
 
-void Object::draw() {
+void Object::render() {
     if(visible) {
-        this->sprite->render(this->x, this->y, NULL);
+        this->sprite->render(this->x, this->y);
     }
 }
 

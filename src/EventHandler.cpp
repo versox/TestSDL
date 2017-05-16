@@ -20,7 +20,7 @@ void EventHandler::handle() {
 
 void EventHandler::handleKey() {
   SDL_Keycode keyCode = event.key.keysym.sym;
-  for(int i = 0; i < registeredKeys.size(); i++) {
+  for(unsigned int i = 0; i < registeredKeys.size(); i++) {
     RegisteredKey rKey = registeredKeys[i];
     if(keyCode == std::get<0>(rKey)) {
       Object& obj = std::get<1>(rKey);
