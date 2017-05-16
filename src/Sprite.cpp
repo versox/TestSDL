@@ -36,5 +36,8 @@ void Sprite::setup(GameWindow* window, SDL_Renderer* renderer) {
 }
 
 void Sprite::render(int xPos, int yPos) {
-  SDL_RenderCopy(renderer, texture, NULL, NULL);
+  SDL_Rect rect {
+    xPos, yPos, 500, 250
+  };
+  SDL_RenderCopy(renderer, texture, NULL, &rect);
 }

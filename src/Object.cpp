@@ -37,5 +37,6 @@ void Object::render() {
 }
 
 void Object::test() {
-    std::cout << "YAY!" << std::endl;
+    x+=5;
+    y+=5;
 }

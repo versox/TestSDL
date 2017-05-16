@@ -34,8 +34,8 @@ private:
     SDL_Renderer* renderer;
     SDL_Texture* texture;
 
-    int mHeight;
-    int mWidth;
+    int width;
+    int height;
 };
 
 #endif	/* SPRITE_H */
