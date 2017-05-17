@@ -22,8 +22,9 @@ public:
 private:
   Game* game;
   SDL_Event event;
-  std::vector<RegisteredKey> registeredKeys;
 
+  std::vector<RegisteredKey> registeredKeys;
+  const Uint8 *keystate;
   void handleKey();
 };
 

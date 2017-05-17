@@ -23,6 +23,8 @@ private:
   /*Sprite* sprite;
   Object* obj;*/
 
+  unsigned int lastTime = 0, currentTime;
+
   int width;
   int height;
 

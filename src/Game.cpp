@@ -37,9 +37,13 @@ void Game::initWindows() {
 int Game::loop() {
   quitGame = false;
   while(!quitGame) {
-    Object::updateObjects();
-    eventHandler->handle();
-    window->render();
+    currentTime = SDL_GetTicks();
+    if(currentTime > lastTime + 10) {
+      Object::updateObjects();
+      eventHandler->handle();
+      window->render();
+      lastTime = currentTime;
+    }
   }
   return 0;
 }
