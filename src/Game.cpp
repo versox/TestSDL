@@ -37,6 +37,7 @@ void Game::initWindows() {
 int Game::loop() {
   quitGame = false;
   while(!quitGame) {
+    Object::updateObjects();
     eventHandler->handle();
     window->render();
   }

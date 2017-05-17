@@ -6,12 +6,19 @@ std::vector<Object*> Object::getObjects() {
   return objects;
 }
 
-Object::Object(GameWindow* window, Sprite* sprite, int x, int y) {
+void Object::updateObjects() {
+  for(unsigned int i = 0; i < objects.size(); i++) {
+    objects[i]->update();
+  }
+}
+
+Object::Object(GameWindow* window, Sprite* sprite, int x, int y, int size) {
     this->window = window;
     this->sprite = sprite;
     sprite->setup(window, window->getRenderer());
     this->x = x;
     this->y = y;
+    this->size = size;
     visible = true;
 
     objectID = objects.size();
@@ -32,7 +39,7 @@ void Object::update() {
 
 void Object::render() {
     if(visible) {
-        this->sprite->render(this->x, this->y);
+        this->sprite->render(this->x, this->y, size);
     }
 }
 

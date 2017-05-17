@@ -40,9 +40,9 @@ void Sprite::setup(GameWindow* window, SDL_Renderer* renderer) {
   SDL_FreeSurface( surface );
 }
 
-void Sprite::render(int xPos, int yPos) {
+void Sprite::render(int xPos, int yPos, int size) {
   SDL_Rect rect {
-    (int) (xPos - width / 2),(int) (yPos - height / 2),(int) width ,(int) height
+    (int) (xPos - width * size / 2),(int) (yPos - height * size / 2),(int) width * size ,(int) height * size
   };
   SDL_RenderCopy(renderer, texture, NULL, &rect);
 }

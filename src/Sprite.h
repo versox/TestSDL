@@ -24,7 +24,7 @@ public:
     //deallocates space
     void freeSpace();
     //Renders textures at specific point
-    void render(int xPos, int yPos);
+    void render(int xPos, int yPos, int size);
     //gets sheet dimensions
     double getWidth();
     double getHeight();
