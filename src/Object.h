@@ -21,11 +21,12 @@ class Object {
 public:
     static Object* getObject(int objectID);
     static std::vector<Object*> getObjects();
+    static void updateObjects();
 private:
     static std::vector<Object*> objects;
 //Object
 public:
-    Object(GameWindow* window, Sprite* sprite, int x, int y);
+    Object(GameWindow* window, Sprite* sprite, int x, int y, int size = 1);
     virtual ~Object();
     int getObjectID();
     virtual void update();
@@ -37,6 +38,7 @@ private:
     Sprite* sprite;
     int x;
     int y;
+    int size;
     int width;
     int height;
     bool visible;

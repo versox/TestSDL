@@ -17,25 +17,31 @@ class GameWindow;
 
 class Sprite {
 public:
-    Sprite(std::string path);
+    Sprite(std::string path, double scale = 1);
     Sprite(const Sprite& orig);
     virtual ~Sprite();
     void setup(GameWindow* window, SDL_Renderer* renderer);
     //deallocates space
     void freeSpace();
     //Renders textures at specific point
-    void render(int xPos, int yPos);
+    void render(int xPos, int yPos, int size);
     //gets sheet dimensions
-    int getWidth();
-    int getHeight();
+    double getWidth();
+    double getHeight();
+    int getActualWidth();
+    int getActualHeight();
+    void setScale(int scale);
 private:
     std::string path;
     GameWindow* window;
     SDL_Renderer* renderer;
     SDL_Texture* texture;
 
-    int width;
-    int height;
+    double width;
+    double height;
+    int actualWidth;
+    int actualHeight;
+    double scale;
 };
 
 #endif	/* SPRITE_H */
