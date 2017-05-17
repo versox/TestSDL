@@ -5,7 +5,9 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Object.h"
+#include "Paddle.h"
 #include "GameWindow.h"
+#include "EventHandler.h"
 
 class PongGame : public Game {
 public:
@@ -15,8 +17,8 @@ private:
   Sprite* redPaddleSprite;
   Sprite* bluePaddleSprite;
   Sprite* ballSprite;
-  Object* playerOne;
-  Object* playerTwo;
+  Paddle* playerOne;
+  Paddle* playerTwo;
   Object* ballObject;
 };
 

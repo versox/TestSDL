@@ -32,12 +32,12 @@ public:
     virtual void update();
     void render();
     void test();
+    int x;
+    int y;
 private:
     int objectID;
     GameWindow* window;
     Sprite* sprite;
-    int x;
-    int y;
     int size;
     int width;
     int height;

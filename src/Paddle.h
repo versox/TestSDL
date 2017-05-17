@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Paddle.h
  * Author: mathp0455
  *
@@ -8,6 +8,7 @@
 #ifndef PADDLE_H
 #define	PADDLE_H
 #include"Object.h"
+#include <iostream>
 
 class Paddle : public Object{
 public:
@@ -16,8 +17,6 @@ public:
     void moveDown();
     void moveUp();
 private:
-    int xPos, yPos;
 };
 
 #endif	/* PADDLE_H */
-
