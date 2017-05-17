@@ -1,11 +1,11 @@
 #include "GameWindow.h"
 
-GameWindow::GameWindow(std::string title) {
+GameWindow::GameWindow(std::string title, int width, int height) {
   windowTitle = title;
   x = SDL_WINDOWPOS_UNDEFINED;
   y = SDL_WINDOWPOS_UNDEFINED;
-  width = 1000;
-  height = 750;
+  this->width = width;
+  this->height = height;
   windowColor = {
     255, 255, 255, 255
   };

@@ -13,13 +13,18 @@ class EventHandler;
 
 class Game {
 public:
-  Game(std::string title = "Generic Game");
+  Game(std::string title = "Generic Game", int width = 1000, int height = 750);
   virtual ~Game();
   int loop();
   void quit();
+  GameWindow* getGameWindow();
+  EventHandler* getEventHandler();
 private:
-  Sprite* sprite;
-  Object* obj;
+  /*Sprite* sprite;
+  Object* obj;*/
+
+  int width;
+  int height;
 
   std::string title;
   GameWindow* window;

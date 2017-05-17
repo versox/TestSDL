@@ -1,14 +1,16 @@
 #include "Game.h"
 
-Game::Game(std::string title) {
+Game::Game(std::string title, int width, int height) {
   this->title = title;
+  this->width = width;
+  this->height = height;
   init();
   initWindows();
-
   eventHandler = new EventHandler(this);
+  /*
   sprite = new Sprite("train.png");
   obj = new Object(window, sprite, 50, 50);
-  eventHandler->registerKey(SDLK_SPACE, *obj, &Object::test);
+  eventHandler->registerKey(SDLK_SPACE, *obj, &Object::test);*/
 }
 
 bool Game::init() {
@@ -27,7 +29,7 @@ bool Game::init() {
 }
 
 void Game::initWindows() {
-  window = new GameWindow(title);
+  window = new GameWindow(title, width, height);
   window->initWindow();
   window->initRenderer();
 }
@@ -39,6 +41,14 @@ int Game::loop() {
     window->render();
   }
   return 0;
+}
+
+GameWindow* Game::getGameWindow() {
+  return window;
+}
+
+EventHandler* Game::getEventHandler() {
+  return eventHandler;
 }
 
 void Game::quit() {

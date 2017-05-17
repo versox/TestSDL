@@ -11,7 +11,7 @@
 
 class GameWindow {
 public:
-  GameWindow(std::string title);
+  GameWindow(std::string title, int width, int height);
   virtual ~GameWindow();
 
   virtual int initWindow();

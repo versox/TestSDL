@@ -7,8 +7,9 @@
 
 #include "Sprite.h"
 
-Sprite::Sprite(std::string path) {
+Sprite::Sprite(std::string path, double scale) {
   this->path = path;
+  this->scale = scale;
   texture = NULL;
 }
 
@@ -28,6 +29,10 @@ void Sprite::setup(GameWindow* window, SDL_Renderer* renderer) {
   {
     printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
   }
+  actualWidth = surface->w;
+  actualHeight = surface->h;
+  width = actualWidth * scale;
+  height = actualHeight * scale;
   texture = SDL_CreateTextureFromSurface(renderer, surface);
   if( texture == NULL ) {
     printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
@@ -37,7 +42,29 @@ void Sprite::setup(GameWindow* window, SDL_Renderer* renderer) {
 
 void Sprite::render(int xPos, int yPos) {
   SDL_Rect rect {
-    xPos, yPos, 500, 250
+    (int) (xPos - width / 2),(int) (yPos - height / 2),(int) width ,(int) height
   };
   SDL_RenderCopy(renderer, texture, NULL, &rect);
+}
+
+double Sprite::getWidth() {
+  return width * scale;
+}
+
+double Sprite::getHeight() {
+  return height * scale;
+}
+
+int Sprite::getActualWidth() {
+  return width;
+}
+
+int Sprite::getActualHeight() {
+  return height;
+}
+
+void Sprite::setScale(int scale) {
+  this->scale = scale;
+  width = actualWidth * scale;
+  height = actualHeight * scale;
 }
