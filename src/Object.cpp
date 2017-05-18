@@ -43,7 +43,4 @@ void Object::render() {
     }
 }
 
-void Object::test() {
-    x+=5;
-    y+=5;
-}
+

@@ -17,18 +17,18 @@ Paddle::~Paddle() {
 }
 
 void Paddle::moveDown(){
-  /*  yPos-=15;
-    if(yPos<0){
-        yPos=0;
-    } */
-    y+=3;
+   
+    if(y+3 <(window->getHeight())){
+        y+=3;
+    }
+    
+   std::cout<<y<<std::endl;
 }
 
 void Paddle::moveUp(){
-  y-=3;
-  /*  yPos+=15;
-    if(yPos>500){
-        yPos=500;
-    } */
-
+  
+    if(y-3>0){
+        y-=3;
+    }
+  std::cout<<y<<std::endl;
 }

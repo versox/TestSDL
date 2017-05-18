@@ -21,8 +21,8 @@ public:
   SDL_Window * getWindow();
   SDL_Renderer * getRenderer();
   void setWindowColor(SDL_Color& windowColor);
-  int getWidth;
-  int getHeight;
+  int getWidth();
+  int getHeight();
 private:
   std::string windowTitle;
   int x;
