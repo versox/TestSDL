@@ -8,7 +8,6 @@
 
 int main(int argc, char* args[]) {
     Game* g = new PongGame();
-    g->loop();
     delete g;
     return 0;
 }
