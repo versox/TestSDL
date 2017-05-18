@@ -31,17 +31,18 @@ public:
     int getObjectID();
     virtual void update();
     void render();
-    void test();
     int x;
     int y;
 private:
     int objectID;
-    GameWindow* window;
     Sprite* sprite;
     int size;
     int width;
     int height;
     bool visible;
+    
+protected:
+    GameWindow* window;
 };
 
 #endif	/* OBJECT_H */
