@@ -33,6 +33,10 @@ Object* Object::getObject(int objectID) {
   return objects.at(objectID);
 }
 
+int Object::getObjectID() {
+  return objectID;
+}
+
 void Object::update() {
 
 }
@@ -42,5 +46,3 @@ void Object::render() {
         this->sprite->render(this->x, this->y, size);
     }
 }
-
-
