@@ -12,7 +12,7 @@ PongGame::PongGame() : Game("Pong", 1000, 500) {
   bluePaddleSprite = new Sprite("bluePaddle.png", 0.2);
   ballSprite = new Sprite("ball.png", 0.2);
   //Ball
-  ballObject = new Object(getGameWindow(), ballSprite, 500, 250);
+  //ballObject = new Object(getGameWindow(), ballSprite, 500, 250);
   //Player One
   playerOne = new Paddle(getGameWindow(), redPaddleSprite, 150, 200);
   getEventHandler()->registerKey(SDLK_w, *playerOne, (static_cast<void (Object::*)()>(&Paddle::moveUp)));
