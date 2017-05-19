@@ -22,7 +22,7 @@ private:
   Sprite* ballSprite;
   Paddle* playerOne;
   Paddle* playerTwo;
-  Object* ballObject;
+  Ball* ballObject;
 };
 
 #endif
