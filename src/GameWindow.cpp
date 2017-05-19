@@ -64,3 +64,11 @@ int GameWindow::createWindow() {
   }
   return 0;
 }
+
+int GameWindow::getWidth() {
+  return width;
+}
+
+int GameWindow::getHeight() {
+  return height;
+}

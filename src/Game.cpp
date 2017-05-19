@@ -7,10 +7,6 @@ Game::Game(std::string title, int width, int height) {
   init();
   initWindows();
   eventHandler = new EventHandler(this);
-  /*
-  sprite = new Sprite("train.png");
-  obj = new Object(window, sprite, 50, 50);
-  eventHandler->registerKey(SDLK_SPACE, *obj, &Object::test);*/
 }
 
 bool Game::init() {
