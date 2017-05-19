@@ -10,3 +10,6 @@ Notes:
 (Passing function pointers)
   Object myObject(NULL, 0, 0);
   eventHandler->registerKey(SDLK_SPACE, myObject, &Object::test);
+
+Designing a good game loop:
+http://gameprogrammingpatterns.com/game-loop.html
