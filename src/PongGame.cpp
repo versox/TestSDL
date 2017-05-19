@@ -18,14 +18,14 @@ PongGame::PongGame() : Game("Pong", 1000, 500) {
   ballObject = new Ball(getGameWindow(), ballSprite, 500, 250);
   getEventHandler()->registerKey(SDLK_SPACE, *ballObject, (static_cast<void (Object::*)()>(&Ball::start)));
   //Player One
-  playerOne = new Paddle(getGameWindow(), redPaddleSprite, 150, 200, ballObject);
+  /*playerOne = new Paddle(getGameWindow(), redPaddleSprite, 150, 200, ballObject);
   getEventHandler()->registerKey(SDLK_w, *playerOne, (static_cast<void (Object::*)()>(&Paddle::moveUp)));
   getEventHandler()->registerKey(SDLK_s, *playerOne, (static_cast<void (Object::*)()>(&Paddle::moveDown)));
   //Player Two
   playerTwo = new Paddle(getGameWindow(), bluePaddleSprite, 850, 200, ballObject);
   getEventHandler()->registerKey(SDLK_UP, *playerTwo, (static_cast<void (Object::*)()>(&Paddle::moveUp)));
   getEventHandler()->registerKey(SDLK_DOWN, *playerTwo, (static_cast<void (Object::*)()>(&Paddle::moveDown)));
-
+  */
   //Start Game Loop
   this->loop();
 }
