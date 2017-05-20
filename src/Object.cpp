@@ -46,3 +46,7 @@ void Object::render() {
         this->sprite->render(this->x, this->y, size);
     }
 }
+
+Sprite* Object::getSprite() {
+  return sprite;
+}

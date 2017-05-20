@@ -8,8 +8,8 @@
 #include "Paddle.h"
 #include "EventHandler.h"
 
-Paddle::Paddle(GameWindow* window, Sprite* sprite, int x, int y, Ball* ball) : Object(window, sprite,  x, y, 1) {
-    this->ball = ball;
+Paddle::Paddle(GameWindow* window, Sprite* sprite, int x, int y) : Object(window, sprite,  x, y, 1) {
+  
 }
 
 
@@ -17,24 +17,21 @@ Paddle::~Paddle() {
 }
 
 void Paddle::moveDown(){
-   
     if(y+3 <(window->getHeight())){
         y+=3;
     }
-    
-   std::cout<<y<<std::endl;
 }
 
 void Paddle::moveUp(){
-  
     if(y-3>0){
         y-=3;
     }
-  std::cout<<y<<std::endl;
 }
 
 void Paddle::update(){
-    if( ((ball->y) == y)&&( (ball->x) == x) ){
-        ball->contact();
-    }
+
+}
+
+void Paddle::contact() {
+  //future color change on contact?
 }

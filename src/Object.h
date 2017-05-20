@@ -31,6 +31,7 @@ public:
     int getObjectID();
     virtual void update();
     void render();
+    Sprite* getSprite();
     int x;
     int y;
 private:
@@ -40,7 +41,7 @@ private:
     int width;
     int height;
     bool visible;
-    
+
 protected:
     GameWindow* window;
 };

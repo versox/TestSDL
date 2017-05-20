@@ -7,20 +7,20 @@
 
 #ifndef PADDLE_H
 #define	PADDLE_H
-#include "Object.h"
-#include "Ball.h"
+
 #include <iostream>
+#include "Object.h"
 
 class Paddle : public Object{
 public:
-    Paddle(GameWindow* window, Sprite* sprite, int x, int y, Ball* ball);
+    Paddle(GameWindow* window, Sprite* sprite, int x, int y);
     virtual ~Paddle();
     void moveDown();
     void moveUp();
-    bool contact();
+    void contact();
     void update();
 private:
-    Ball* ball;
+
 };
 
 #endif	/* PADDLE_H */

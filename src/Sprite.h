@@ -26,8 +26,8 @@ public:
     //Renders textures at specific point
     void render(int xPos, int yPos, int size);
     //gets sheet dimensions
-    double getWidth();
-    double getHeight();
+    int getWidth();
+    int getHeight();
     int getActualWidth();
     int getActualHeight();
     void setScale(int scale);

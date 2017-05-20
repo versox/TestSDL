@@ -47,12 +47,12 @@ void Sprite::render(int xPos, int yPos, int size) {
   SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
 
-double Sprite::getWidth() {
-  return width * scale;
+int Sprite::getWidth() {
+  return (int) (width * scale);
 }
 
-double Sprite::getHeight() {
-  return height * scale;
+int Sprite::getHeight() {
+  return (int) (height * scale);
 }
 
 int Sprite::getActualWidth() {

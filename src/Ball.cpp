@@ -1,10 +1,13 @@
 #include "Ball.h"
 
-Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y)
+Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles)
 : Object(window, sprite, x, y) {
+    initX = x;
+    initY = y;
     velX = 0;
     velY = 0;
     moving = false;
+    this->paddles = paddles;
 }
 
 Ball::~Ball() {
@@ -29,17 +32,54 @@ void Ball::start() {
   }
 }
 
+void Ball::reset() {
+  moving = false;
+  x = initX;
+  y = initY;
+  velX = 0;
+  velY = 0;
+}
+
 void Ball::update() {
-  if(x > 1000 || x < 0) {
-    velX = -velX;
-  }
+  // Check Walls
   if(y > 500 || y < 0) {
     velY = -velY;
   }
+
+  // Check Paddles
+  int paddleHeight = paddles->at(0)->getSprite()->getActualHeight();
+  int paddleWidth = paddles->at(0)->getSprite()->getActualWidth();
+  int ballRadius = this->getSprite()->getActualWidth() / 2;
+  // Player 1
+  // In paddle range?
+  if(paddles->at(0)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(0)->y + (paddleHeight / 2)) {
+    // Touching paddle
+    if(paddles->at(0)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(0)->x + (paddleWidth / 2)) {
+      velX = fabs(velX);
+    }
+  }
+  // Player 2
+  // In paddle range?
+  if(paddles->at(1)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(1)->y + (paddleHeight / 2)) {
+    // Touching paddle
+    if(paddles->at(1)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(1)->x + (paddleWidth / 2)) {
+      velX = -(fabs(velX));
+    }
+  }
+
+  //Move
   this->x += velX;
   this->y += velY;
-}
 
-void Ball::contact() {
-  velX = -velX;
+  //Score
+  if(x < 0) {
+    //Player 2 score
+    std::cout << "Player 2 score!" << std::endl;
+    reset();
+  }
+  if(x > 1000) {
+    //Player 1 score
+    std::cout << "Player 1 score!" << std::endl;
+    reset();
+  }
 }

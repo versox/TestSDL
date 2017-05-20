@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string>
+#include "SDL.h"
 #include "Game.h"
 #include "Sprite.h"
 #include "Object.h"
@@ -20,8 +21,7 @@ private:
   Sprite* redPaddleSprite;
   Sprite* bluePaddleSprite;
   Sprite* ballSprite;
-  Paddle* playerOne;
-  Paddle* playerTwo;
+  std::vector<Paddle*>* playerPaddles;
   Ball* ballObject;
 };
 
