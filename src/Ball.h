@@ -21,6 +21,8 @@ public:
 private:
   int initX;
   int initY;
+  int accelX;
+  int accelY;
   int velX;
   int velY;
   bool moving;

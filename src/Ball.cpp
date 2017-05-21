@@ -7,6 +7,8 @@ Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*
     initY = y;
     velX = 0;
     velY = 0;
+    accelX = 1;
+    accelY = 1;
     moving = false;
     this->paddles = paddles;
     this->scoreboard = scoreboard;
@@ -31,6 +33,7 @@ void Ball::start() {
     } else {
       velY = -1;
     }
+    velY *= (rand() % 3) + 1;
     moving = true;
   }
 }
@@ -60,6 +63,11 @@ void Ball::update() {
     if(paddles->at(0)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(0)->x + (paddleWidth / 2)) {
       velX = fabs(velX);
       soundManager->playBoop();
+      //Accelerate?
+      if(fabs(velX) < 10) {
+        velX += accelX;
+        velY += accelY;
+      }
     }
   }
   // Player 2
@@ -69,6 +77,11 @@ void Ball::update() {
     if(paddles->at(1)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(1)->x + (paddleWidth / 2)) {
       velX = -(fabs(velX));
       soundManager->playBeep();
+      //Accelerate?
+      if(fabs(velX) < 10) {
+        velX -= accelX;
+        velY -= accelY;
+      }
     }
   }
 
