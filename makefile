@@ -22,7 +22,7 @@ ifeq ($(OS_Detected), Windows)
 	LIBS= SDL2 -lSDL2_ttf -lSDL2_image
 	LIB= -L $(LIBDIRS) -l$(LIBS)
 else
-	LIB= -lSDL2 -lSDL2_ttf -lSDL2_image
+	LIB= -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 endif
 
 CPP_FILES := $(wildcard src/*.cpp)

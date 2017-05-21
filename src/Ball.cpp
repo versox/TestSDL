@@ -1,6 +1,6 @@
 #include "Ball.h"
 
-Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard)
+Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard, SoundManager* soundManager)
 : Object(window, sprite, x, y) {
     setup();
     initX = x;
@@ -10,6 +10,7 @@ Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*
     moving = false;
     this->paddles = paddles;
     this->scoreboard = scoreboard;
+    this->soundManager = soundManager;
 }
 
 Ball::~Ball() {
@@ -58,6 +59,7 @@ void Ball::update() {
     // Touching paddle
     if(paddles->at(0)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(0)->x + (paddleWidth / 2)) {
       velX = fabs(velX);
+      soundManager->playBoop();
     }
   }
   // Player 2
@@ -66,6 +68,7 @@ void Ball::update() {
     // Touching paddle
     if(paddles->at(1)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(1)->x + (paddleWidth / 2)) {
       velX = -(fabs(velX));
+      soundManager->playBeep();
     }
   }
 
@@ -77,11 +80,13 @@ void Ball::update() {
   if(x < 0) {
     //Player 2 score
     scoreboard->increaseScore(2);
+    soundManager->playYay();
     reset();
   }
   if(x > 1000) {
     //Player 1 score
     scoreboard->increaseScore(1);
+    soundManager->playYay();
     reset();
   }
 }
