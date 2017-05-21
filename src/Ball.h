@@ -7,11 +7,12 @@
 #include "GameWindow.h"
 #include "Sprite.h"
 #include "Object.h"
+#include "ScoreBoard.h"
 #include "Paddle.h"
 
 class Ball : public Object {
 public:
-  Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles);
+  Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard);
   virtual ~Ball();
   void reset();
   void start();
@@ -23,6 +24,7 @@ private:
   int velY;
   bool moving;
   std::vector<Paddle*>* paddles;
+  ScoreBoard* scoreboard;
 };
 
 #endif

@@ -1,13 +1,15 @@
 #include "Ball.h"
 
-Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles)
+Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard)
 : Object(window, sprite, x, y) {
+    setup();
     initX = x;
     initY = y;
     velX = 0;
     velY = 0;
     moving = false;
     this->paddles = paddles;
+    this->scoreboard = scoreboard;
 }
 
 Ball::~Ball() {
@@ -74,12 +76,12 @@ void Ball::update() {
   //Score
   if(x < 0) {
     //Player 2 score
-    std::cout << "Player 2 score!" << std::endl;
+    scoreboard->increaseScore(2);
     reset();
   }
   if(x > 1000) {
     //Player 1 score
-    std::cout << "Player 1 score!" << std::endl;
+    scoreboard->increaseScore(1);
     reset();
   }
 }

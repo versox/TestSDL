@@ -9,7 +9,7 @@
 #include "EventHandler.h"
 
 Paddle::Paddle(GameWindow* window, Sprite* sprite, int x, int y) : Object(window, sprite,  x, y, 1) {
-  
+    setup();
 }
 
 

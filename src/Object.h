@@ -29,8 +29,9 @@ public:
     Object(GameWindow* window, Sprite* sprite, int x, int y, int size = 1);
     virtual ~Object();
     int getObjectID();
+    virtual void setup();
     virtual void update();
-    void render();
+    virtual void render();
     Sprite* getSprite();
     int x;
     int y;

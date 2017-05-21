@@ -8,6 +8,7 @@
 #include "Game.h"
 #include "Sprite.h"
 #include "Object.h"
+#include "ScoreBoard.h"
 #include "Ball.h"
 #include "Paddle.h"
 #include "GameWindow.h"
@@ -21,6 +22,7 @@ private:
   Sprite* redPaddleSprite;
   Sprite* bluePaddleSprite;
   Sprite* ballSprite;
+  ScoreBoard* scoreBoard;
   std::vector<Paddle*>* playerPaddles;
   Ball* ballObject;
 };

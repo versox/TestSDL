@@ -15,7 +15,6 @@ void Object::updateObjects() {
 Object::Object(GameWindow* window, Sprite* sprite, int x, int y, int size) {
     this->window = window;
     this->sprite = sprite;
-    sprite->setup(window, window->getRenderer());
     this->x = x;
     this->y = y;
     this->size = size;
@@ -35,6 +34,10 @@ Object* Object::getObject(int objectID) {
 
 int Object::getObjectID() {
   return objectID;
+}
+
+void Object::setup() {
+  sprite->setup(window, window->getRenderer());
 }
 
 void Object::update() {
