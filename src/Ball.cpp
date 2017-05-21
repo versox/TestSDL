@@ -48,7 +48,7 @@ void Ball::reset() {
 
 void Ball::update() {
   // Check Walls
-  if(y > 500 || y < 0) {
+  if(y > this->window->getHeight() || y < 0) {
     velY = -velY;
   }
 
@@ -96,7 +96,7 @@ void Ball::update() {
     soundManager->playYay();
     reset();
   }
-  if(x > 1000) {
+  if(x > this->window->getWidth()) {
     //Player 1 score
     scoreboard->increaseScore(1);
     soundManager->playYay();
