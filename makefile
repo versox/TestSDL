@@ -11,15 +11,15 @@ FLAGS= -g -std=c++0x -Wall
 
 ifeq ($(OS_Detected), Windows)
 	OUTPUT=$(NAME).exe
-	INCLUDES= H:\SDL2-2.0.5\include -I H:\SDL2_ttf-2.0.14\include -I H:\SDL2_image-2.0.1\include
+	INCLUDES= H:\SDL2-2.0.5\include -I H:\SDL2_ttf-2.0.14\include -I H:\SDL2_image-2.0.1\include -I H:\SDL2_mixer-2.0.1\include
 else
 	OUTPUT=$(NAME)
 	INCLUDES= /usr/include/SDL2
 endif
 
 ifeq ($(OS_Detected), Windows)
-	LIBDIRS= H:\SDL2-2.0.5\lib\x86 -L H:\SDL2_ttf-2.0.14\lib\x86 -L H:\SDL2_image-2.0.1\lib\x86
-	LIBS= SDL2 -lSDL2_ttf -lSDL2_image
+	LIBDIRS= H:\SDL2-2.0.5\lib\x86 -L H:\SDL2_ttf-2.0.14\lib\x86 -L H:\SDL2_image-2.0.1\lib\x86 -L H:\SDL2_mixer-2.0.1\lib\x86
+	LIBS= SDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 	LIB= -L $(LIBDIRS) -l$(LIBS)
 else
 	LIB= -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer

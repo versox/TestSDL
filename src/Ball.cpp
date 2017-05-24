@@ -61,10 +61,10 @@ void Ball::update() {
   if(paddles->at(0)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(0)->y + (paddleHeight / 2)) {
     // Touching paddle
     if(paddles->at(0)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(0)->x + (paddleWidth / 2)) {
-      velX = fabs(velX);
+      velX = abs(velX);
       soundManager->playBoop();
       //Accelerate?
-      if(fabs(velX) < 10) {
+      if(abs(velX) < 10) {
         velX += accelX;
         velY += accelY;
       }
@@ -75,10 +75,10 @@ void Ball::update() {
   if(paddles->at(1)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(1)->y + (paddleHeight / 2)) {
     // Touching paddle
     if(paddles->at(1)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(1)->x + (paddleWidth / 2)) {
-      velX = -(fabs(velX));
+      velX = -(abs(velX));
       soundManager->playBeep();
       //Accelerate?
-      if(fabs(velX) < 10) {
+      if(abs(velX) < 10) {
         velX -= accelX;
         velY -= accelY;
       }
