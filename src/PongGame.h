@@ -13,6 +13,7 @@
 #include "Paddle.h"
 #include "GameWindow.h"
 #include "EventHandler.h"
+#include "SoundManager.h"
 
 class PongGame : public Game {
 public:

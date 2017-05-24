@@ -1,15 +1,18 @@
 #include "Ball.h"
 
-Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard)
+Ball::Ball(GameWindow* window, Sprite* sprite, int x, int y, std::vector<Paddle*>* paddles, ScoreBoard* scoreboard, SoundManager* soundManager)
 : Object(window, sprite, x, y) {
     setup();
     initX = x;
     initY = y;
     velX = 0;
     velY = 0;
+    accelX = 1;
+    accelY = 1;
     moving = false;
     this->paddles = paddles;
     this->scoreboard = scoreboard;
+    this->soundManager = soundManager;
 }
 
 Ball::~Ball() {
@@ -30,6 +33,7 @@ void Ball::start() {
     } else {
       velY = -1;
     }
+    velY *= (rand() % 3) + 1;
     moving = true;
   }
 }
@@ -44,7 +48,7 @@ void Ball::reset() {
 
 void Ball::update() {
   // Check Walls
-  if(y > 500 || y < 0) {
+  if(y > this->window->getHeight() || y < 0) {
     velY = -velY;
   }
 
@@ -57,7 +61,13 @@ void Ball::update() {
   if(paddles->at(0)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(0)->y + (paddleHeight / 2)) {
     // Touching paddle
     if(paddles->at(0)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(0)->x + (paddleWidth / 2)) {
-      velX = fabs(velX);
+      velX = abs(velX);
+      soundManager->playBoop();
+      //Accelerate?
+      if(abs(velX) < 10) {
+        velX += accelX;
+        velY += accelY;
+      }
     }
   }
   // Player 2
@@ -65,7 +75,13 @@ void Ball::update() {
   if(paddles->at(1)->y - (paddleHeight / 2) < this->y && this->y < paddles->at(1)->y + (paddleHeight / 2)) {
     // Touching paddle
     if(paddles->at(1)->x - (paddleWidth / 2) < this->x + ballRadius && this->x - ballRadius < paddles->at(1)->x + (paddleWidth / 2)) {
-      velX = -(fabs(velX));
+      velX = -(abs(velX));
+      soundManager->playBeep();
+      //Accelerate?
+      if(abs(velX) < 10) {
+        velX -= accelX;
+        velY -= accelY;
+      }
     }
   }
 
@@ -77,11 +93,13 @@ void Ball::update() {
   if(x < 0) {
     //Player 2 score
     scoreboard->increaseScore(2);
+    soundManager->playYay();
     reset();
   }
-  if(x > 1000) {
+  if(x > this->window->getWidth()) {
     //Player 1 score
     scoreboard->increaseScore(1);
+    soundManager->playYay();
     reset();
   }
 }

@@ -4,6 +4,9 @@ PongGame::PongGame() : Game("Pong", 1000, 500) {
   //Setup a random seed
   srand(time(NULL));
 
+  //Sound
+  SoundManager* soundManager = new SoundManager();
+
   //Black background
   SDL_Color backgroundColor = {
     0, 0, 0, 0
@@ -31,12 +34,13 @@ PongGame::PongGame() : Game("Pong", 1000, 500) {
   getEventHandler()->registerKey(SDLK_UP, *(*playerPaddles)[1], (static_cast<void (Object::*)()>(&Paddle::moveUp)));
   getEventHandler()->registerKey(SDLK_DOWN, *(*playerPaddles)[1], (static_cast<void (Object::*)()>(&Paddle::moveDown)));
   //Ball
-  ballObject = new Ball(getGameWindow(), ballSprite, windowWidth / 2, windowHeight / 2, playerPaddles, scoreBoard);
+  ballObject = new Ball(getGameWindow(), ballSprite, windowWidth / 2, windowHeight / 2, playerPaddles, scoreBoard, soundManager);
   getEventHandler()->registerKey(SDLK_SPACE, *ballObject, (static_cast<void (Object::*)()>(&Ball::start)));
   getEventHandler()->registerKey(SDLK_r, *ballObject, (static_cast<void (Object::*)()>(&Ball::reset)));
 
   //Start Game Loop
   this->loop();
+  delete soundManager;
 }
 
 PongGame::~PongGame() {
